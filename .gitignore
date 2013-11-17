@@ -1,0 +1,7 @@
+*.html
+pics/*/*.png
+pics/*/*.jpg
+pics/*/*.gif
+pics/*/thumb/*.png
+pics/*/thumb/*.jpg
+pics/*/thumb/*.gif
