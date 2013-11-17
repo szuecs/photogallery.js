@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<%-
+THUMBNAILS_PER_PAGE = 18
+%>
+<html>
+  <head>
+    <title>PhotoGallery.js</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="PhotoGallery.js is a minimalistic Slideshow Gallery with jQuery and Ruby erb" />
+    <meta name="keywords" content="photogallery.js, erb, minimalistic, slideshow, jquery, gallery, thumbnails, css3"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+  </head>
+<body>
+  <a href="./gallery.html" style="float: left;">back</a>
+  <div class="content" style="float: left;">
+    <div id="slideshow_container" class="slideshow_container">
+      <div id="pic_container" class="pic_container"></div>
+      <div id="controls" class="controls">
+        <a href="#" id="grid_control" class="grid_control"></a>
+        <a href="#" id="previous_control" class="previous_control"></a>
+        <a href="#" id="play_pause_control" class="msg_pause"></a>
+        <a href="#" id="next_control" class="next_control"></a>
+      </div>
+      <div id="thumbnail_container" class="thumbnail_container">
+        <%  STDERR.puts "Set picture directory -> $PIC_DIR #{ENV['PIC_DIR']}"
+            flat_pics = Dir["#{ENV['PIC_DIR']}/thumb/*"].sort
+            pics = []
+            while flat_pics.size > 0
+              pics << flat_pics.shift(THUMBNAILS_PER_PAGE)
+            end
+            for pic_chunk in pics do
+        %>
+          <div class="thumbnail_block" style="display: none;">
+          <% for fname in pic_chunk do %>
+            <a href="#" align="center"><img src="<%= fname %>" alt="<%= fname.sub('thumb/tmb_','') %>" /></a>
+          <% end %>
+          </div>
+        <% end %>
+        <a href="#" id="next_thumb_control" class="next_thumb_control"></a>
+        <a href="#" id="previous_thumb_control" class="previous_thumb_control"></a>
+        <a href="#" id="close_thumb_control" class="close_thumb_control"></a>
+        <span class="loading_pict"></span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <em>Use the mouse and the controls or keybindings to navigate:</em>
+      <ul style="list-style-type: none;">
+        <li><kbd>&lt;Space&gt;</kbd> play and pause animation,</li>
+        <li><img src="icons/next_thumb.png" style="background: black;"/> or <kbd>↠</kbd> next picture,</li>
+        <li><img src="icons/next_thumb.png" style="background: black; -webkit-transform: rotate(180deg);"/> or <kbd>↞</kbd> previous picture,</li>
+        <li><img src="icons/next_thumb.png" style="background: black; -webkit-transform: rotate(90deg);"/> or <kbd>↡</kbd> open thumbnail view,</li>
+        <li><img src="icons/next_thumb.png" style="background: black; -webkit-transform: rotate(270deg);"/> or <kbd>↟</kbd> close thumbnail view.</li>
+      </ul>
+      <ul class="thumb_controls_help" style="list-style-type:none;display:none;">
+        <h3>Thumbnail View</h3>
+        <li><kbd>A</kbd> for next thumbnail</li>
+        <li><kbd>S</kbd> for previous thumbnail</li>
+        <li><img src="icons/next_thumb.png" style="background: black;"/> or <kbd>↠</kbd> next thumbnail page,</li>
+        <li><img src="icons/next_thumb.png" style="background: black; -webkit-transform: rotate(180deg);"/> or <kbd>↞</kbd> previous thumbnail page.</li>
+      </ul>
+  </div>
+
+    <!-- The JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="photogallery.js"></script>
+  </body>
+</html>
