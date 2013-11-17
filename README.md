@@ -46,6 +46,7 @@ this:
 
 
 Now you generate thumbnails:
+
     cd pics/asia2012
     for each in *.jpg; do convert -size 120x120 $each -resize 120x120 thumb/tmb_$each; done
     cd ..
