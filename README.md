@@ -74,4 +74,4 @@ After generating the thumbnails your directory should looks like this:
 
 After creating your thumbnails you can render your target html page:
 
-    % ./create.hs pics/asia2012 > gallery_asia2012.html
+    % ./create.sh pics/asia2012 > gallery_asia2012.html
