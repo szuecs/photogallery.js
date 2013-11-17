@@ -2,6 +2,8 @@
 pics/*/*.png
 pics/*/*.jpg
 pics/*/*.gif
+pics/*/TODO
 pics/*/thumb/*.png
 pics/*/thumb/*.jpg
 pics/*/thumb/*.gif
+pics/*/thumb/TODO
