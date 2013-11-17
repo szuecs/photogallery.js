@@ -7,6 +7,11 @@ files.  The generator should work on all Linux, MacOS X or other UNIX
 flavors. Your clients should have a webkit based browser that supports
 HTML5 and CSS3.
 
+Features:
+* autoscale pictures (horizontal/vertical)
+* thumbnail view
+* key bindings
+
 Preconditions
 -------------
 
