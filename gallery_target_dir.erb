@@ -19,11 +19,11 @@ THUMBNAILS_PER_PAGE = 18
       <div id="controls" class="controls">
         <a href="#" id="grid_control" class="grid_control"></a>
         <a href="#" id="previous_control" class="previous_control"></a>
-        <a href="#" id="play_pause_control" class="msg_pause"></a>
+        <a href="#" id="play_pause_control" class="msg_play"></a>
         <a href="#" id="next_control" class="next_control"></a>
       </div>
       <div id="thumbnail_container" class="thumbnail_container">
-        <%  STDERR.puts "Set picture directory -> $PIC_DIR #{ENV['PIC_DIR']}"
+        <%  STDERR.puts "Set picture directory: $PIC_DIR -> #{ENV['PIC_DIR']}"
             flat_pics = Dir["#{ENV['PIC_DIR']}/thumb/*"].sort
             pics = []
             while flat_pics.size > 0

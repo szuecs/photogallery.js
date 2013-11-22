@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PIC_DIR=$1
+export PIC_DIR=$1
 if [ -f $1/TODO ]
 then
   rm -f $1/TODO
@@ -11,4 +11,3 @@ then
 fi
 
 erb gallery_target_dir.erb
-
